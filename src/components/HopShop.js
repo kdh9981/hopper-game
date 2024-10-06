@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line no-unused-vars
 const shopItems = [
   { id: 'springShoes', name: 'Spring Shoes', emoji: '👟', cost: 15, hopsPerJumpBoost: 0.1 },
   { id: 'bouncyCarrot', name: 'Bouncy Carrot', emoji: '🥕', cost: 50, hopsPerJumpBoost: 0.2 },

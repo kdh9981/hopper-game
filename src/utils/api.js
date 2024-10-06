@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import axios from 'axios';
 
 const API_URL = 'http://localhost:3001/api'; // We'll set up the backend later

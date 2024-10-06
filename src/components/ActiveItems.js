@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line no-unused-vars
 const itemEmojis = {
   springShoes: '👟', bouncyCarrot: '🥕', rocketBoots: '🚀', energyDrink: '🥤',
   trampoline: '🔵', jetpack: '🎒', antiGravityBelt: '🌠', superCarrot: '🥕',
