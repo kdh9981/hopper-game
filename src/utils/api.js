@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001/api'; // We'll set up the backend later
+const API_URL = 'https://hopper-game-backend.onrender.com/api';
 
 export const saveUserProgress = async (walletAddress, data) => {
   console.log('Saving progress for wallet:', walletAddress, 'Data:', data);
