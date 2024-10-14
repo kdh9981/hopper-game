@@ -122,7 +122,6 @@ const HopperGame = () => {
       }, 500); // Adjust duration for the jump animation
     }
   };
-  
 
   const buyItem = (item) => {
     if (totalHops >= item.cost && (activeItems[item.id] || 0) < 10) {
@@ -151,6 +150,7 @@ const HopperGame = () => {
   return (
     <div className="hopper-game">
       <div className="game-section left" style={{ backgroundImage: `url(${nightImage})` }}>
+        <WalletMultiButton className="wallet-adapter-button-trigger" />
         <h1>Hop into the Future!</h1>
         <div className="game-stats" style={{ textAlign: 'center', left: '50%', transform: 'translateX(-50%)' }}>
           <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
@@ -177,7 +177,6 @@ const HopperGame = () => {
       </div>
       <div className="section-divider"></div>
       <div className="game-section right" style={{ backgroundImage: `url(${buildingsImage})` }}>
-        <WalletMultiButton />
         <div className="leaderboard">
           <h2>Top 10 Hoppers</h2>
           {leaderboardData.length > 0 ? (
