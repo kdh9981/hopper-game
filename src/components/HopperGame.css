@@ -11,7 +11,9 @@
   height: 100%;
   padding: 20px;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.95); /* Solid light background to make content stand out */
+  background-image: url('/images/night_background.jpg'); /* Night background without the moon */
+  background-size: cover;
+  background-position: center;
   border-radius: 15px; /* Rounded corners for a polished look */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle drop shadow for depth */
   overflow-y: auto; /* Allow scrolling for long content */
@@ -102,6 +104,9 @@ h1 {
 .active-items, .hop-shop {
   height: 50%;
   overflow-y: auto;
+  color: white;
+  font-weight: bold;
+  text-align: center;
 }
 
 .items-grid {
@@ -136,8 +141,8 @@ h1 {
 
 .shop-items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr); /* Two items per row for more space */
+  gap: 15px;
 }
 
 .shop-item {
@@ -145,7 +150,7 @@ h1 {
   border-radius: 10px; /* Rounded corners */
   border: 1px solid #ddd; /* Lighter border to create visual separation */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for card effect */
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,7 +172,9 @@ h1 {
 
 .leaderboard {
   margin-top: 20px;
-  background-color: rgba(255, 255, 255, 0.95); /* Light background to make text readable */
+  background-image: url('/images/night_background.jpg'); /* Night background without the moon */
+  background-size: cover;
+  background-position: center;
   border-radius: 15px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for better visual quality */
   padding: 20px; /* Spacing inside the leaderboard */
@@ -175,7 +182,7 @@ h1 {
 
 .leaderboard h2 {
   font-family: 'Arial', sans-serif; /* Consistent header font */
-  color: #333; /* Dark color for contrast */
+  color: white; /* White color for better contrast */
   text-align: center;
   margin-bottom: 15px;
 }
@@ -193,8 +200,9 @@ h1 {
 }
 
 .leaderboard th {
-  background-color: #f2f2f2; /* Slightly different background for header cells */
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background for header cells */
   font-weight: bold;
+  color: white;
 }
 
 button {
