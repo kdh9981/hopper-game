@@ -23,7 +23,7 @@
   width: 30%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center align content including the wallet button */
+  align-items: flex-end; /* Align wallet button to the right */
   background-size: cover;
   background-position: center;
 }
@@ -54,7 +54,15 @@
   cursor: default; /* Set cursor to default for non-clickable areas */
 }
 
-h1, .active-items, .hop-shop {
+h1 {
+  text-align: center;
+  margin: 0 0 10px; /* Move title higher */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-size: 30px; /* Match font size with "Hop into the Future!" */
+}
+
+.active-items, .hop-shop {
   text-align: center;
   margin: 20px 0;
   color: white;
@@ -94,7 +102,7 @@ h1, .active-items, .hop-shop {
 
 .moon {
   position: absolute;
-  top: 0%; /* Move moon slightly up */
+  top: -15%; /* Move moon slightly higher */
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
@@ -244,7 +252,7 @@ h1, .active-items, .hop-shop {
 }
 
 .wallet-adapter-button-trigger {
-  text-align: center;
+  align-self: flex-end; /* Align wallet button to the right */
   margin-bottom: 20px; /* Add space below the button */
 }
 

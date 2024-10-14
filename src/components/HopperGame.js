@@ -152,7 +152,7 @@ const HopperGame = () => {
       <div className="game-section left" style={{ backgroundImage: `url(${nightImage})` }}>
         <WalletMultiButton className="wallet-adapter-button-trigger" />
         <h1>Hop into the Future!</h1>
-        <div className="game-stats" style={{ textAlign: 'center', left: '50%', transform: 'translateX(-50%)' }}>
+        <div className="game-stats">
           <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
           <p>Hops per Jump: <span className="stat-value">{hopsPerJump.toFixed(1)}</span></p>
         </div>
