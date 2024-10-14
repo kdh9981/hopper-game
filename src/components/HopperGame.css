@@ -167,7 +167,7 @@ h1, .active-items, .hop-shop {
 
 .shop-items {
   display: grid;
-  grid-template-columns: 1fr; /* Display one item per row for mobile */
+  grid-template-columns: repeat(2, 1fr); /* Display two items per row for desktop */
   gap: 15px;
   justify-items: center; /* Center items within their grid cells */
   overflow-x: auto; /* Allow horizontal scrolling for more items */
