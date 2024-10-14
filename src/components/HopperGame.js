@@ -149,64 +149,64 @@ const HopperGame = () => {
   };
 
   return (
-    <div className="hopper-game">
-      <div className="game-section left" style={{backgroundImage: `url(${nightImage})`}}>
-        <h1>Hop into the Future!</h1>
-        <div className="game-stats">
-          <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
-          <p>Hops per Jump: <span className="stat-value">{hopsPerJump.toFixed(1)}</span></p>
+    <>
+      <div className="hopper-game">
+        <div className="game-section left" style={{backgroundImage: `url(${nightImage})`}}>
+          <h1>Hop into the Future!</h1>
+          <div className="game-stats">
+            <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
+            <p>Hops per Jump: <span className="stat-value">{hopsPerJump.toFixed(1)}</span></p>
+          </div>
+          <div className="game-area">
+            <img src={moonImage} alt="Moon" className="moon" />
+            <div
+              className="hopper"
+              onClick={(event) => handleJump(event)}
+              style={{backgroundImage: `url(${rabbitImage})`}}
+            />
+          </div>
         </div>
-        <div className="game-area">
-          <img src={moonImage} alt="Moon" className="moon" />
-          <div 
-  className="hopper" 
-  onClick={(event) => handleJump(event)} 
-  style={{backgroundImage: `url(${rabbitImage})`}}
-/>
-</div>
+        <div className="section-divider"></div>
+        <div className="game-section middle" style={{backgroundImage: `url(${buildingsImage})`}}>
+          <ActiveItems items={activeItems} shopItems={shopItems} />
+          <HopShop
+            totalHops={totalHops}
+            buyItem={buyItem}
+            activeItems={activeItems}
+            shopItems={shopItems}
+          />
+        </div>
+        <div className="section-divider"></div>
+        <div className="game-section right" style={{backgroundImage: `url(${buildingsImage})`}}>
+          <WalletMultiButton />
+          <div className="leaderboard">
+            <h2>Top 10 Hoppers</h2>
+            {leaderboardData.length > 0 ? (
+              <table>
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Wallet</th>
+                    <th>Total Hops</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {leaderboardData.map((entry, index) => (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{entry.walletAddress ? `${entry.walletAddress.slice(0, 4)}...${entry.walletAddress.slice(-4)}` : 'Unknown'}</td>
+                      <td>{entry.totalHops !== undefined ? entry.totalHops.toFixed(1) : 'N/A'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <p>No leaderboard data available</p>
+            )}
+          </div>
         </div>
       </div>
-      <div className="section-divider"></div>
-      <div className="game-section middle" style={{backgroundImage: `url(${buildingsImage})`}}>
-        <ActiveItems items={activeItems} shopItems={shopItems} />
-        <HopShop 
-          totalHops={totalHops}
-          buyItem={buyItem}
-          activeItems={activeItems}
-          shopItems={shopItems}
-        />
-      </div>
-      <div className="section-divider"></div>
-      <div className="game-section right" style={{backgroundImage: `url(${buildingsImage})`}}>
-        <WalletMultiButton />
-        <div className="leaderboard">
-  <h2>Top 10 Hoppers</h2>
-  {leaderboardData.length > 0 ? (
-    <table>
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Wallet</th>
-          <th>Total Hops</th>
-        </tr>
-      </thead>
-      <tbody>
-        {leaderboardData.map((entry, index) => (
-          <tr key={index}>
-            <td>{index + 1}</td>
-            <td>{entry.walletAddress ? `${entry.walletAddress.slice(0, 4)}...${entry.walletAddress.slice(-4)}` : 'Unknown'}</td>
-            <td>{entry.totalHops !== undefined ? entry.totalHops.toFixed(1) : 'N/A'}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  ) : (
-    <p>No leaderboard data available</p>
-  )}
-</div>
-      </div>
-    </div>
-  );
-};
+    </>
+);
 
 export default HopperGame;
