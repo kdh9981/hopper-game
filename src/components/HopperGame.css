@@ -170,7 +170,7 @@ h1, .active-items, .hop-shop {
   grid-template-columns: repeat(2, 1fr); /* Display two items per row for desktop */
   gap: 15px;
   justify-items: center; /* Center items within their grid cells */
-  overflow-x: auto; /* Allow horizontal scrolling for more items */
+  overflow-y: auto; /* Allow vertical scrolling for more items */
   max-height: 300px; /* Limit height to show 3 items at a time */
 }
 
@@ -280,7 +280,7 @@ button:disabled {
   }
 
   .game-area {
-    height: 600px; /* Make game area longer to position rabbit below moon */
+    height: 560px; /* Make game area longer to position rabbit below moon */
   }
 
   .middle, .left, .right {
@@ -303,8 +303,8 @@ button:disabled {
   .shop-items {
     grid-template-columns: 1fr; /* One item per row for mobile */
     gap: 10px;
-    overflow-x: auto; /* Allow horizontal scrolling for more items */
-    max-height: 300px; /* Limit height to show 3 items at a time */
+    overflow-y: auto; /* Allow vertical scrolling for more items */
+    max-height: 600px; /* Limit height to show 3 items at a time */
   }
 
   .shop-item {
