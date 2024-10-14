@@ -8,14 +8,16 @@ app.use(cors());
 app.use(express.json());
 
 const port = process.env.PORT || 3001;
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI || 'mongodb+srv://kdh9981:Kdh9931039!@cluster0.q5f8e.mongodb.net/hopper_game?retryWrites=true&w=majority&tls=true';
 let db;
 
 async function connectToDatabase() {
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  });
+    serverSelectionTimeoutMS: 5000, // 5 seconds timeout to find a server
+    connectTimeoutMS: 10000, // 10 seconds to connect
+  });  
   try {
     await client.connect();
     db = client.db('hopper_game');
