@@ -42,7 +42,7 @@
 
 /* Add some spacing between the sections for better readability */
 .section-divider {
-  width: 2%;
+  width: 1%;
   height: 100%;
   background-color: transparent;
 }
@@ -58,12 +58,26 @@ h1, .active-items, .hop-shop {
   margin: 20px 0;
   color: white;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  font-size: 28px; /* Match font size with "Hop into the Future!" */
+  font-size: 30px; /* Match font size with "Hop into the Future!" */
+}
+
+/* Instructions added above Active Items */
+.instructions {
+  text-align: center;
+  margin: 10px 0;
+  color: white;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-style: italic; /* Make the instructions more visible */
+}
+
+.instructions::before {
+  content: "Use Total Hops to buy items in the Hop Shop. Max 10 per item.";
 }
 
 .game-stats {
   position: relative;
-  top: 40px; /* Move game stats section slightly up */
+  top: -10px; /* Move game stats section slightly up */
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -79,7 +93,7 @@ h1, .active-items, .hop-shop {
 
 .moon {
   position: absolute;
-  top: 5%; /* Move moon slightly up */
+  top: 0%; /* Move moon slightly up */
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
@@ -89,7 +103,7 @@ h1, .active-items, .hop-shop {
 .hopper {
   position: absolute;
   bottom: 1%;
-  left: 50%;
+  left: 40%;
   transform: translateX(-50%);
   width: 240px;  /* 20% smaller than 300px */
   height: 240px;
@@ -112,7 +126,7 @@ h1, .active-items, .hop-shop {
   color: white;
   font-weight: bold;
   text-align: center;
-  font-size: 28px; /* Match font size with "Hop into the Future!" */
+  font-size: 25px; /* Match font size with "Hop into the Future!" */
 }
 
 .items-grid {
@@ -163,7 +177,7 @@ h1, .active-items, .hop-shop {
   border-radius: 10px; /* Rounded corners */
   border: 1px solid #ddd; /* Lighter border to create visual separation */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for card effect */
-  padding: 15px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,8 +200,8 @@ h1, .active-items, .hop-shop {
   opacity: 0.5;
 }
 
-.leaderboard {
-  margin-top: 20px;
+.leaderboard {margin-top: 10px;
+  text-align: center;
   background-image: url('./images/night.png'); /* Night background without the moon */
   background-size: cover;
   background-position: center;
@@ -223,6 +237,10 @@ h1, .active-items, .hop-shop {
   background-color: rgba(0, 0, 0, 0.8); /* Darker background for header cells */
   font-weight: bold;
   color: white;
+}
+
+.wallet-adapter-button-trigger {
+  text-align: center;
 }
 
 button {
