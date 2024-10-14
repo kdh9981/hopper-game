@@ -11,7 +11,7 @@
   height: 100%;
   padding: 20px;
   box-sizing: border-box;
-  background-image: url('/images/night_background.jpg'); /* Night background without the moon */
+  background-image: url('./images/night.png'); /* Night background without the moon */
   background-size: cover;
   background-position: center;
   border-radius: 15px; /* Rounded corners for a polished look */
@@ -50,6 +50,7 @@
 .game-area {
   position: relative;
   flex-grow: 1;
+  cursor: default; /* Set cursor to default for non-clickable areas */
 }
 
 h1 {
@@ -79,6 +80,7 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
+  pointer-events: none; /* Prevent clicking on the moon */
 }
 
 .hopper {
@@ -172,7 +174,7 @@ h1 {
 
 .leaderboard {
   margin-top: 20px;
-  background-image: url('/images/night_background.jpg'); /* Night background without the moon */
+  background-image: url('./images/night.png'); /* Night background without the moon */
   background-size: cover;
   background-position: center;
   border-radius: 15px; /* Rounded corners */

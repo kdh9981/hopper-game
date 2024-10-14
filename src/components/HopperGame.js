@@ -93,30 +93,36 @@ const HopperGame = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  const handleJump = () => {
-    const newTotalHops = totalHops + hopsPerJump;
-    setTotalHops(newTotalHops);
-    if (walletAddress) {
-      saveUserProgress(walletAddress, {
-        totalHops: newTotalHops,
-        hopsPerJump,
-        activeItems,
-      }).catch(console.error);
+  const handleJump = (event) => {
+    // Ensure only the rabbit element is the target of the click
+    if (event.target.classList.contains('hopper')) {
+      const newTotalHops = totalHops + hopsPerJump;
+      setTotalHops(newTotalHops);
+  
+      if (walletAddress) {
+        saveUserProgress(walletAddress, {
+          totalHops: newTotalHops,
+          hopsPerJump,
+          activeItems,
+        }).catch(console.error);
+      }
+  
+      // Play the jump sound
+      if (jumpSoundRef.current) {
+        jumpSoundRef.current.play().catch(error => console.error("Error playing sound:", error));
+      }
+  
+      const rabbit = document.querySelector('.hopper');
+      rabbit.style.backgroundImage = `url(${jumpImage})`;
+      rabbit.classList.add('jump');
+  
+      setTimeout(() => {
+        rabbit.style.backgroundImage = `url(${rabbitImage})`;
+        rabbit.classList.remove('jump');
+      }, 500); // Adjust duration for the jump animation
     }
-    
-// Play the jump sound
-if (jumpSoundRef.current) {
-  jumpSoundRef.current.play().catch(error => console.error("Error playing sound:", error));
-}
-
-    const rabbit = document.querySelector('.hopper');
-    rabbit.style.backgroundImage = `url(${jumpImage})`;
-    rabbit.classList.add('jump');
-    setTimeout(() => {
-      rabbit.style.backgroundImage = `url(${rabbitImage})`;
-      rabbit.classList.remove('jump');
-    }, 500);
   };
+  
 
   const buyItem = (item) => {
     if (totalHops >= item.cost && (activeItems[item.id] || 0) < 10) {
@@ -153,10 +159,11 @@ if (jumpSoundRef.current) {
         <div className="game-area">
           <img src={moonImage} alt="Moon" className="moon" />
           <div 
-            className="hopper" 
-            onClick={handleJump} 
-            style={{backgroundImage: `url(${rabbitImage})`}}
-          ></div>
+  className="hopper" 
+  onClick={(event) => handleJump(event)} 
+  style={{backgroundImage: `url(${rabbitImage})`}}
+/>
+</div>
         </div>
       </div>
       <div className="section-divider"></div>
