@@ -16,17 +16,15 @@
   background-position: center;
   border-radius: 15px; /* Rounded corners for a polished look */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle drop shadow for depth */
-  overflow-y: hidden; /* Remove scrolling for long content */
+  overflow-y: auto; /* Allow scrolling for long content */
 }
 
 .left {
   width: 30%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align wallet button to the right */
   background-size: cover;
   background-position: center;
-  position: relative; /* Allow absolute positioning of wallet button */
 }
 
 .middle {
@@ -55,16 +53,7 @@
   cursor: default; /* Set cursor to default for non-clickable areas */
 }
 
-h1 {
-  text-align: center;
-  margin: 0 0 10px; /* Move title higher */
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  font-size: 30px; /* Match font size with "Hop into the Future!" */
-  margin-top: -40px; /* Move the title higher */
-}
-
-.active-items, .hop-shop {
+h1, .active-items, .hop-shop {
   text-align: center;
   margin: 20px 0;
   color: white;
@@ -88,14 +77,13 @@ h1 {
 
 .game-stats {
   position: relative;
-  top: -10px; /* Move game stats section slightly up */
+  top: -20px; /* Move game stats section slightly up */
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   color: white;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   text-align: center;
-  margin-top: -20px; /* Move game stats higher */
 }
 
 .stat-value {
@@ -105,7 +93,7 @@ h1 {
 
 .moon {
   position: absolute;
-  top: -25%; /* Move moon slightly higher */
+  top: -7%; /* Move moon slightly up */
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
@@ -255,11 +243,7 @@ h1 {
 }
 
 .wallet-adapter-button-trigger {
-  align-self: flex-end; /* Align wallet button to the right */
-  margin-bottom: 20px; /* Add space below the button */
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  text-align: center;
 }
 
 button {
@@ -296,7 +280,7 @@ button:disabled {
   }
 
   .game-area {
-    height: 476px; /* Shorten game area length by 15% */
+    height: 460px; /* Make game area longer to position rabbit below moon */
   }
 
   .middle, .left, .right {
