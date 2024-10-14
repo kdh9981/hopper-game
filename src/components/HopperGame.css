@@ -20,7 +20,7 @@
 }
 
 .left {
-  width: 35%;
+  width: 32%;
   display: flex;
   flex-direction: column;
   background-size: cover;
@@ -28,7 +28,7 @@
 }
 
 .middle {
-  width: 35%;
+  width: 32%;
   display: flex;
   flex-direction: column;
   background-size: cover;
@@ -36,7 +36,7 @@
 }
 
 .right {
-  width: 25%;
+  width: 30%;
   font-size: 18px;
 }
 
@@ -58,7 +58,7 @@ h1, .active-items, .hop-shop {
   margin: 20px 0;
   color: white;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  font-size: 24px; /* Match font size with "Hop into the Future!" */
+  font-size: 28px; /* Match font size with "Hop into the Future!" */
 }
 
 .game-stats {
@@ -110,7 +110,7 @@ h1, .active-items, .hop-shop {
   color: white;
   font-weight: bold;
   text-align: center;
-  font-size: 24px; /* Match font size with "Hop into the Future!" */
+  font-size: 28px; /* Match font size with "Hop into the Future!" */
 }
 
 .items-grid {
@@ -120,8 +120,8 @@ h1, .active-items, .hop-shop {
 }
 
 .item-slot {
-  width: 55px; /* Increased size by 10% */
-  height: 55px;
+  width: 60px; /* Increased size by 10% */
+  height: 60px;
   background-color: #ffffff; /* White background for each item */
   border-radius: 10px; /* Rounded corners */
   border: 1px solid #ddd; /* Lighter border to create visual separation */
@@ -139,8 +139,13 @@ h1, .active-items, .hop-shop {
 }
 
 .item-emoji {
-  font-size: 20px; /* Reduced size for better fit */
+  font-size: 18px; /* Reduced size for better fit */
   margin-bottom: 5px;
+  color: black; /* Make font color visible on white background */
+}
+
+.item-count {
+  font-size: 14px; /* Match font size with shop items */
   color: black; /* Make font color visible on white background */
 }
 
@@ -162,6 +167,7 @@ h1, .active-items, .hop-shop {
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hovering */
   font-size: 14px; /* Reduced font size for better fit */
   color: black; /* Make font color visible on white background */
+  width: 90%; /* Make items narrower by 10% */
 }
 
 .shop-item:hover {
@@ -192,7 +198,7 @@ h1, .active-items, .hop-shop {
   color: white; /* White color for better contrast */
   text-align: center;
   margin-bottom: 15px;
-  font-size: 24px; /* Match font size with "Hop into the Future!" */
+  font-size: 28px; /* Match font size with "Hop into the Future!" */
 }
 
 .leaderboard table {

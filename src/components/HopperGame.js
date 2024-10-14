@@ -12,7 +12,6 @@ import jumpSound from './jump.wav';
 import nightImage from './images/night.png';
 import rabbitImage from './images/rabbit.png';
 import jumpImage from './images/jump.png';
-import moonImage from './images/moon.png';
 
 // Define shopItems here
 const shopItems = [
@@ -73,8 +72,11 @@ const HopperGame = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
+        console.log('Fetching leaderboard data...');
         const data = await fetchLeaderboardData();
+        console.log('Raw leaderboard data:', data);
         if (Array.isArray(data) && data.length > 0) {
+          console.log('Setting leaderboard data:', data);
           setLeaderboardData(data);
         } else {
           console.error('Leaderboard data is not in the expected format:', data);
@@ -118,7 +120,6 @@ const HopperGame = () => {
       }, 500); // Adjust duration for the jump animation
     }
   };
-  
 
   const buyItem = (item) => {
     if (totalHops >= item.cost && (activeItems[item.id] || 0) < 10) {
@@ -152,11 +153,9 @@ const HopperGame = () => {
           <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
           <p>Hops per Jump: <span className="stat-value">{hopsPerJump.toFixed(1)}</span></p>
         </div>
-        <div className="game-area">
-          <img src={moonImage} alt="Moon" className="moon" />
+        <div className="game-area" onClick={(event) => handleJump(event)}>
           <div
             className="hopper"
-            onClick={(event) => handleJump(event)}
             style={{ backgroundImage: `url(${rabbitImage})` }}
           />
         </div>
