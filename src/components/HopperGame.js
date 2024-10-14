@@ -90,6 +90,7 @@ const HopperGame = () => {
   }, []);
 
   const handleJump = (event) => {
+    // Ensure only the rabbit element is the target of the click
     if (event.target.classList.contains('hopper')) {
       const newTotalHops = totalHops + hopsPerJump;
       setTotalHops(newTotalHops);
@@ -102,6 +103,7 @@ const HopperGame = () => {
         }).catch(console.error);
       }
   
+      // Play the jump sound
       if (jumpSoundRef.current) {
         jumpSoundRef.current.play().catch(error => console.error("Error playing sound:", error));
       }
@@ -116,6 +118,7 @@ const HopperGame = () => {
       }, 500); // Adjust duration for the jump animation
     }
   };
+  
 
   const buyItem = (item) => {
     if (totalHops >= item.cost && (activeItems[item.id] || 0) < 10) {
