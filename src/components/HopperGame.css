@@ -155,7 +155,7 @@ h1, .active-items, .hop-shop {
 }
 
 .item-emoji {
-  font-size: 18px; /* Reduced size for better fit */
+  font-size: 36px; /* 2x size bigger than original */
   margin-bottom: 5px;
   color: black; /* Make font color visible on white background */
 }
@@ -200,7 +200,8 @@ h1, .active-items, .hop-shop {
   opacity: 0.5;
 }
 
-.leaderboard {margin-top: 10px;
+.leaderboard {
+  margin-top: 10px;
   text-align: center;
   background-image: url('./images/night.png'); /* Night background without the moon */
   background-size: cover;
