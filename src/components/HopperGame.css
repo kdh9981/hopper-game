@@ -20,7 +20,7 @@
 }
 
 .left {
-  width: 32%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   background-size: cover;
@@ -28,7 +28,7 @@
 }
 
 .middle {
-  width: 32%;
+  width: 34%;
   display: flex;
   flex-direction: column;
   background-size: cover;
@@ -63,11 +63,13 @@ h1, .active-items, .hop-shop {
 
 .game-stats {
   position: absolute;
-  top: 80px;
-  left: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
   color: white;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  text-align: center;
 }
 
 .stat-value {
@@ -167,7 +169,7 @@ h1, .active-items, .hop-shop {
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hovering */
   font-size: 14px; /* Reduced font size for better fit */
   color: black; /* Make font color visible on white background */
-  width: 90%; /* Make items narrower by 10% */
+  width: 80%; /* Make items narrower by 10% */
 }
 
 .shop-item:hover {
