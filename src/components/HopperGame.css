@@ -28,7 +28,7 @@
 }
 
 .middle {
-  width: 34%;
+  width: 37%; /* Increased width by 10% */
   display: flex;
   flex-direction: column;
   background-size: cover;
@@ -63,7 +63,7 @@ h1, .active-items, .hop-shop {
 
 .game-stats {
   position: absolute;
-  top: 50%;
+  top: 15%; /* Adjusted to align below "Hop into the Future!" */
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -169,7 +169,7 @@ h1, .active-items, .hop-shop {
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hovering */
   font-size: 14px; /* Reduced font size for better fit */
   color: black; /* Make font color visible on white background */
-  width: 80%; /* Make items narrower by 10% */
+  width: 70%; /* Make items narrower by 10% */
 }
 
 .shop-item:hover {
