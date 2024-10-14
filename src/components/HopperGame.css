@@ -103,7 +103,7 @@ h1, .active-items, .hop-shop {
 .hopper {
   position: absolute;
   bottom: 1%;
-  left: 50%;
+  left: 40%; /* Position rabbit 40% from left for both desktop and mobile */
   transform: translateX(-50%);
   width: 240px;  /* 20% smaller than 300px */
   height: 240px;
@@ -167,9 +167,10 @@ h1, .active-items, .hop-shop {
 
 .shop-items {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two items per row for more space */
+  grid-template-columns: 1fr; /* Display one item per row for mobile */
   gap: 15px;
   justify-items: center; /* Center items within their grid cells */
+  overflow-x: auto; /* Allow horizontal scrolling for more items */
 }
 
 .shop-item {
@@ -278,7 +279,7 @@ button:disabled {
   }
 
   .game-area {
-    height: 300px; /* Adjust height for game area to position rabbit below moon */
+    height: 500px; /* Make game area longer to position rabbit below moon */
   }
 
   .middle, .left, .right {
@@ -301,6 +302,7 @@ button:disabled {
   .shop-items {
     grid-template-columns: 1fr; /* One item per row for mobile */
     gap: 10px;
+    overflow-x: auto; /* Allow horizontal scrolling for more items */
   }
 
   .shop-item {
