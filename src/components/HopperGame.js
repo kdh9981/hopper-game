@@ -10,7 +10,6 @@ import './HopperGame.css';
 import jumpSound from './jump.wav';
 
 import nightImage from './images/night.png';
-import buildingsImage from './images/buildings.png';
 import rabbitImage from './images/rabbit.png';
 import jumpImage from './images/jump.png';
 import moonImage from './images/moon.png';
@@ -74,11 +73,8 @@ const HopperGame = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        console.log('Fetching leaderboard data...');
         const data = await fetchLeaderboardData();
-        console.log('Raw leaderboard data:', data);
         if (Array.isArray(data) && data.length > 0) {
-          console.log('Setting leaderboard data:', data);
           setLeaderboardData(data);
         } else {
           console.error('Leaderboard data is not in the expected format:', data);
@@ -94,7 +90,6 @@ const HopperGame = () => {
   }, []);
 
   const handleJump = (event) => {
-    // Ensure only the rabbit element is the target of the click
     if (event.target.classList.contains('hopper')) {
       const newTotalHops = totalHops + hopsPerJump;
       setTotalHops(newTotalHops);
@@ -107,7 +102,6 @@ const HopperGame = () => {
         }).catch(console.error);
       }
   
-      // Play the jump sound
       if (jumpSoundRef.current) {
         jumpSoundRef.current.play().catch(error => console.error("Error playing sound:", error));
       }
@@ -148,64 +142,62 @@ const HopperGame = () => {
   };
 
   return (
-    <>
-      <div className="hopper-game">
-        <div className="game-section left" style={{ backgroundImage: `url(${nightImage})` }}>
-          <h1>Hop into the Future!</h1>
-          <div className="game-stats">
-            <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
-            <p>Hops per Jump: <span className="stat-value">{hopsPerJump.toFixed(1)}</span></p>
-          </div>
-          <div className="game-area">
-            <img src={moonImage} alt="Moon" className="moon" />
-            <div
-              className="hopper"
-              onClick={(event) => handleJump(event)}
-              style={{ backgroundImage: `url(${rabbitImage})` }}
-            />
-          </div>
+    <div className="hopper-game">
+      <div className="game-section left" style={{ backgroundImage: `url(${nightImage})` }}>
+        <h1>Hop into the Future!</h1>
+        <div className="game-stats">
+          <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
+          <p>Hops per Jump: <span className="stat-value">{hopsPerJump.toFixed(1)}</span></p>
         </div>
-        <div className="section-divider"></div>
-        <div className="game-section middle" style={{ backgroundImage: `url(${buildingsImage})` }}>
-          <ActiveItems items={activeItems} shopItems={shopItems} />
-          <HopShop
-            totalHops={totalHops}
-            buyItem={buyItem}
-            activeItems={activeItems}
-            shopItems={shopItems}
+        <div className="game-area">
+          <img src={moonImage} alt="Moon" className="moon" />
+          <div
+            className="hopper"
+            onClick={(event) => handleJump(event)}
+            style={{ backgroundImage: `url(${rabbitImage})` }}
           />
         </div>
-        <div className="section-divider"></div>
-        <div className="game-section right" style={{ backgroundImage: `url(${buildingsImage})` }}>
-          <WalletMultiButton />
-          <div className="leaderboard">
-            <h2>Top 10 Hoppers</h2>
-            {leaderboardData.length > 0 ? (
-              <table>
-                <thead>
-                  <tr>
-                    <th>Rank</th>
-                    <th>Wallet</th>
-                    <th>Total Hops</th>
+      </div>
+      <div className="section-divider"></div>
+      <div className="game-section middle" style={{ backgroundImage: `url(${nightImage})` }}>
+        <ActiveItems items={activeItems} shopItems={shopItems} />
+        <HopShop
+          totalHops={totalHops}
+          buyItem={buyItem}
+          activeItems={activeItems}
+          shopItems={shopItems}
+        />
+      </div>
+      <div className="section-divider"></div>
+      <div className="game-section right" style={{ backgroundImage: `url(${nightImage})` }}>
+        <WalletMultiButton />
+        <div className="leaderboard">
+          <h2>Top 10 Hoppers</h2>
+          {leaderboardData.length > 0 ? (
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Wallet</th>
+                  <th>Total Hops</th>
+                </tr>
+              </thead>
+              <tbody>
+                {leaderboardData.map((entry, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{entry.walletAddress ? `${entry.walletAddress.slice(0, 4)}...${entry.walletAddress.slice(-4)}` : 'Unknown'}</td>
+                    <td>{entry.totalHops !== undefined ? entry.totalHops.toFixed(1) : 'N/A'}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {leaderboardData.map((entry, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>{entry.walletAddress ? `${entry.walletAddress.slice(0, 4)}...${entry.walletAddress.slice(-4)}` : 'Unknown'}</td>
-                      <td>{entry.totalHops !== undefined ? entry.totalHops.toFixed(1) : 'N/A'}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <p>No leaderboard data available</p>
-            )}
-          </div>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>No leaderboard data available</p>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

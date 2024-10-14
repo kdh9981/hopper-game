@@ -53,11 +53,12 @@
   cursor: default; /* Set cursor to default for non-clickable areas */
 }
 
-h1 {
+h1, .active-items, .hop-shop {
   text-align: center;
   margin: 20px 0;
   color: white;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-size: 24px; /* Match font size with "Hop into the Future!" */
 }
 
 .game-stats {
@@ -109,6 +110,7 @@ h1 {
   color: white;
   font-weight: bold;
   text-align: center;
+  font-size: 24px; /* Match font size with "Hop into the Future!" */
 }
 
 .items-grid {
@@ -187,22 +189,26 @@ h1 {
   color: white; /* White color for better contrast */
   text-align: center;
   margin-bottom: 15px;
+  font-size: 24px; /* Match font size with "Hop into the Future!" */
 }
 
 .leaderboard table {
   width: 100%;
   border-collapse: collapse;
   font-size: 16px; /* Adjust font size for readability */
+  background: rgba(0, 0, 0, 0.7); /* Dark background for leaderboard table */
+  color: white; /* Make fonts visible on dark background */
 }
 
 .leaderboard th, .leaderboard td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd; /* Consistent border for better separation */
+  color: white; /* Ensure font color is visible */
 }
 
 .leaderboard th {
-  background-color: rgba(0, 0, 0, 0.7); /* Darker background for header cells */
+  background-color: rgba(0, 0, 0, 0.8); /* Darker background for header cells */
   font-weight: bold;
   color: white;
 }
