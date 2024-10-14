@@ -96,20 +96,22 @@ const HopperGame = () => {
   const handleJump = (event) => {
     // Ensure only the rabbit element is the target of the click
     if (event.target.classList.contains('hopper')) {
+      console.log('Rabbit clicked for jump');
       const newTotalHops = totalHops + hopsPerJump;
       setTotalHops(newTotalHops);
+      console.log('New total hops:', newTotalHops);
   
       if (walletAddress) {
         saveUserProgress(walletAddress, {
           totalHops: newTotalHops,
           hopsPerJump,
           activeItems,
-        }).catch(console.error);
+        }).then(() => console.log('Progress saved successfully')).catch(console.error);
       }
   
       // Play the jump sound
       if (jumpSoundRef.current) {
-        jumpSoundRef.current.play().catch(error => console.error("Error playing sound:", error));
+        jumpSoundRef.current.play().then(() => console.log('Jump sound played')).catch(error => console.error("Error playing sound:", error));
       }
   
       const rabbit = document.querySelector('.hopper');
@@ -119,12 +121,14 @@ const HopperGame = () => {
       setTimeout(() => {
         rabbit.style.backgroundImage = `url(${rabbitImage})`;
         rabbit.classList.remove('jump');
+        console.log('Jump animation complete');
       }, 500); // Adjust duration for the jump animation
     }
   };
 
   const buyItem = (item) => {
     if (totalHops >= item.cost && (activeItems[item.id] || 0) < 10) {
+      console.log('Buying item:', item.name);
       const newTotalHops = totalHops - item.cost;
       const newHopsPerJump = hopsPerJump + item.hopsPerJumpBoost;
       setTotalHops(newTotalHops);
@@ -133,6 +137,8 @@ const HopperGame = () => {
         ...activeItems,
         [item.id]: (activeItems[item.id] || 0) + 1
       });
+      console.log('Updated total hops:', newTotalHops);
+      console.log('Updated hops per jump:', newHopsPerJump);
       
       if (walletAddress) {
         saveUserProgress(walletAddress, {
@@ -142,7 +148,7 @@ const HopperGame = () => {
             ...activeItems,
             [item.id]: (activeItems[item.id] || 0) + 1
           },
-        }).catch(console.error);
+        }).then(() => console.log('Progress saved successfully after buying item')).catch(console.error);
       }
     }
   };
@@ -152,7 +158,7 @@ const HopperGame = () => {
       <div className="game-section left" style={{ backgroundImage: `url(${nightImage})` }}>
         <WalletMultiButton className="wallet-adapter-button-trigger" />
         <h1>Hop into the Future!</h1>
-        <div className="game-stats" style={{ textAlign: 'center', left: '50%', transform: 'translateX(-50%)' }}>
+        <div className="game-stats">
           <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
           <p>Hops per Jump: <span className="stat-value">{hopsPerJump.toFixed(1)}</span></p>
         </div>
