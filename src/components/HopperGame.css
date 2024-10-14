@@ -1,3 +1,5 @@
+/* Updated CSS for Hopper Game */
+
 .hopper-game {
   display: flex;
   width: 100%;
@@ -9,6 +11,10 @@
   height: 100%;
   padding: 20px;
   box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.95); /* Solid light background to make content stand out */
+  border-radius: 15px; /* Rounded corners for a polished look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle drop shadow for depth */
+  overflow-y: auto; /* Allow scrolling for long content */
 }
 
 .left {
@@ -25,8 +31,6 @@
   flex-direction: column;
   background-size: cover;
   background-position: center;
-   background-color: rgba(255, 255, 255, 0.8);  /* More transparent */
-  background-blend-mode: lighten;
 }
 
 .right {
@@ -34,10 +38,11 @@
   font-size: 18px;
 }
 
+/* Add some spacing between the sections for better readability */
 .section-divider {
   width: 2%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent;
 }
 
 .game-area {
@@ -108,11 +113,25 @@ h1 {
 .item-slot {
   width: 50px;
   height: 50px;
-  border: 3px solid #ccc;
+  background-color: #ffffff; /* White background for each item */
+  border-radius: 10px; /* Rounded corners */
+  border: 1px solid #ddd; /* Lighter border to create visual separation */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for card effect */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item-slot:hover {
+  transform: translateY(-5px); /* Slight upward movement */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+}
+
+.item-emoji {
+  font-size: 24px; /* Increase size for better visibility */
+  margin-bottom: 5px;
 }
 
 .shop-items {
@@ -122,12 +141,20 @@ h1 {
 }
 
 .shop-item {
-  border: 3px solid #ccc;
-  padding: 5px;
+  background-color: #ffffff; /* White background for each item */
+  border-radius: 10px; /* Rounded corners */
+  border: 1px solid #ddd; /* Lighter border to create visual separation */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for card effect */
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: opacity 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hovering */
+}
+
+.shop-item:hover {
+  transform: translateY(-5px); /* Slight upward movement */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
 }
 
 .shop-item.not-affordable {
@@ -140,24 +167,52 @@ h1 {
 
 .leaderboard {
   margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.95); /* Light background to make text readable */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for better visual quality */
+  padding: 20px; /* Spacing inside the leaderboard */
+}
+
+.leaderboard h2 {
+  font-family: 'Arial', sans-serif; /* Consistent header font */
+  color: #333; /* Dark color for contrast */
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .leaderboard table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 16px; /* Adjust font size for readability */
 }
 
 .leaderboard th, .leaderboard td {
-  padding: 8px;
+  padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; /* Consistent border for better separation */
 }
 
 .leaderboard th {
-  background-color: #f2f2f2;
+  background-color: #f2f2f2; /* Slightly different background for header cells */
   font-weight: bold;
 }
 
-.wallet-adapter-button {
-  font-size: 18px;
+button {
+  background-color: #ff9800; /* Bright orange color for action buttons */
+  color: #fff; /* White text for better contrast */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #e68900; /* Darker orange on hover */
+  transform: translateY(-3px); /* Add a slight lift effect on hover */
+}
+
+button:disabled {
+  background-color: #ccc; /* Gray for disabled state */
+  cursor: not-allowed;
 }
