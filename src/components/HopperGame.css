@@ -280,7 +280,7 @@ button:disabled {
   }
 
   .game-area {
-    height: 560px; /* Make game area longer to position rabbit below moon */
+    height: 500px; /* Make game area slightly shorter for mobile */
   }
 
   .middle, .left, .right {
