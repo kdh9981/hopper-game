@@ -10,8 +10,10 @@ import './HopperGame.css';
 import jumpSound from './jump.wav';
 
 import nightImage from './images/night.png';
+import buildingsImage from './images/night.png'; // Use night.png instead of buildings
 import rabbitImage from './images/rabbit.png';
 import jumpImage from './images/jump.png';
+import moonImage from './images/moon.png';
 
 // Define shopItems here
 const shopItems = [
@@ -120,6 +122,7 @@ const HopperGame = () => {
       }, 500); // Adjust duration for the jump animation
     }
   };
+  
 
   const buyItem = (item) => {
     if (totalHops >= item.cost && (activeItems[item.id] || 0) < 10) {
@@ -149,19 +152,21 @@ const HopperGame = () => {
     <div className="hopper-game">
       <div className="game-section left" style={{ backgroundImage: `url(${nightImage})` }}>
         <h1>Hop into the Future!</h1>
-        <div className="game-stats">
+        <div className="game-stats" style={{ textAlign: 'center', left: '50%', transform: 'translateX(-50%)' }}>
           <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
           <p>Hops per Jump: <span className="stat-value">{hopsPerJump.toFixed(1)}</span></p>
         </div>
-        <div className="game-area" onClick={(event) => handleJump(event)}>
+        <div className="game-area">
+          <img src={moonImage} alt="Moon" className="moon" />
           <div
             className="hopper"
+            onClick={(event) => handleJump(event)}
             style={{ backgroundImage: `url(${rabbitImage})` }}
           />
         </div>
       </div>
       <div className="section-divider"></div>
-      <div className="game-section middle" style={{ backgroundImage: `url(${nightImage})` }}>
+      <div className="game-section middle" style={{ backgroundImage: `url(${buildingsImage})` }}>
         <ActiveItems items={activeItems} shopItems={shopItems} />
         <HopShop
           totalHops={totalHops}
@@ -171,7 +176,7 @@ const HopperGame = () => {
         />
       </div>
       <div className="section-divider"></div>
-      <div className="game-section right" style={{ backgroundImage: `url(${nightImage})` }}>
+      <div className="game-section right" style={{ backgroundImage: `url(${buildingsImage})` }}>
         <WalletMultiButton />
         <div className="leaderboard">
           <h2>Top 10 Hoppers</h2>
