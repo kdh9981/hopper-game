@@ -155,7 +155,7 @@ h1, .active-items, .hop-shop {
 }
 
 .item-emoji {
-  font-size: 36px; /* 2x size bigger than original */
+  font-size: 25px; /* 2x size bigger than original */
   margin-bottom: 5px;
   color: black; /* Make font color visible on white background */
 }
