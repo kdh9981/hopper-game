@@ -113,11 +113,11 @@ const HopperGame = () => {
       }
   
       const rabbit = document.querySelector('.hopper');
-      rabbit.style.backgroundImage = `url(${jumpImage})`;
+      rabbit.style.backgroundImage = url(${jumpImage});
       rabbit.classList.add('jump');
   
       setTimeout(() => {
-        rabbit.style.backgroundImage = `url(${rabbitImage})`;
+        rabbit.style.backgroundImage = url(${rabbitImage});
         rabbit.classList.remove('jump');
       }, 500); // Adjust duration for the jump animation
     }
@@ -149,10 +149,10 @@ const HopperGame = () => {
 
   return (
     <div className="hopper-game">
-      <div className="game-section left" style={{ backgroundImage: `url(${nightImage})` }}>
+      <div className="game-section left" style={{ backgroundImage: url(${nightImage}) }}>
         <WalletMultiButton className="wallet-adapter-button-trigger" />
         <h1>Hop into the Future!</h1>
-        <div className="game-stats">
+        <div className="game-stats" style={{ textAlign: 'center', left: '50%', transform: 'translateX(-50%)' }}>
           <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
           <p>Hops per Jump: <span className="stat-value">{hopsPerJump.toFixed(1)}</span></p>
         </div>
@@ -161,12 +161,12 @@ const HopperGame = () => {
           <div
             className="hopper"
             onClick={(event) => handleJump(event)}
-            style={{ backgroundImage: `url(${rabbitImage})` }}
+            style={{ backgroundImage: url(${rabbitImage}) }}
           />
         </div>
       </div>
       <div className="section-divider"></div>
-      <div className="game-section middle" style={{ backgroundImage: `url(${buildingsImage})` }}>
+      <div className="game-section middle" style={{ backgroundImage: url(${buildingsImage}) }}>
         <ActiveItems items={activeItems} shopItems={shopItems} />
         <HopShop
           totalHops={totalHops}
@@ -176,7 +176,7 @@ const HopperGame = () => {
         />
       </div>
       <div className="section-divider"></div>
-      <div className="game-section right" style={{ backgroundImage: `url(${buildingsImage})` }}>
+      <div className="game-section right" style={{ backgroundImage: url(${buildingsImage}) }}>
         <div className="leaderboard">
           <h2>Top 10 Hoppers</h2>
           {leaderboardData.length > 0 ? (
@@ -192,7 +192,7 @@ const HopperGame = () => {
                 {leaderboardData.map((entry, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{entry.walletAddress ? `${entry.walletAddress.slice(0, 4)}...${entry.walletAddress.slice(-4)}` : 'Unknown'}</td>
+                    <td>{entry.walletAddress ? ${entry.walletAddress.slice(0, 4)}...${entry.walletAddress.slice(-4)} : 'Unknown'}</td>
                     <td>{entry.totalHops !== undefined ? entry.totalHops.toFixed(1) : 'N/A'}</td>
                   </tr>
                 ))}
