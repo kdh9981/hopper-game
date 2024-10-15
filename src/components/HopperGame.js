@@ -155,6 +155,7 @@ const HopperGame = () => {
           console.log('Progress saved successfully after buying item');
           // Play buy sound when purchase is successful
           if (buySoundRef.current) {
+            buySoundRef.current.currentTime = 0; // Reset sound to the beginning
             buySoundRef.current.play().then(() => console.log('Buy sound played')).catch(error => console.error("Error playing buy sound:", error));
           }
         }).catch(console.error);
