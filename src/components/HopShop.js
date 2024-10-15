@@ -14,7 +14,7 @@ const HopShop = ({ totalHops, buyItem, activeItems, shopItems }) => {
                 <span className="item-emoji">{item.emoji}</span>
                 <span className="item-name">{item.name}</span>
                 <span className="item-cost">Cost: {item.cost} Hops</span>
-                <span className="item-boost">+{item.hopsPerJumpBoost} Hops per Jump</span>
+                <span className="item-boost">+{item.hopsPerJumpBoost} Hops/Jump</span>
                 <span className="item-owned">Owned: {itemCount}/10</span>
                 <button 
                   onClick={() => buyItem(item)} 
