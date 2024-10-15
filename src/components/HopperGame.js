@@ -132,6 +132,14 @@ const HopperGame = () => {
   const buyItem = (item) => {
     if (totalHops >= item.cost && (activeItems[item.id] || 0) < 10) {
       console.log('Buying item:', item.name);
+  
+      // Play buy sound immediately when the buy button is clicked
+      if (buySoundRef.current) {
+        buySoundRef.current.currentTime = 0; // Reset sound to the beginning
+        buySoundRef.current.play().then(() => console.log('Buy sound played')).catch(error => console.error("Error playing buy sound:", error));
+      }
+  
+      // Proceed with updating the state after the sound plays
       const newTotalHops = totalHops - item.cost;
       const newHopsPerJump = hopsPerJump + item.hopsPerJumpBoost;
       setTotalHops(newTotalHops);
@@ -142,7 +150,7 @@ const HopperGame = () => {
       });
       console.log('Updated total hops:', newTotalHops);
       console.log('Updated hops per jump:', newHopsPerJump);
-      
+  
       if (walletAddress) {
         saveUserProgress(walletAddress, {
           totalHops: newTotalHops,
@@ -153,11 +161,6 @@ const HopperGame = () => {
           },
         }).then(() => {
           console.log('Progress saved successfully after buying item');
-          // Play buy sound when purchase is successful
-          if (buySoundRef.current) {
-            buySoundRef.current.currentTime = 0; // Reset sound to the beginning
-            buySoundRef.current.play().then(() => console.log('Buy sound played')).catch(error => console.error("Error playing buy sound:", error));
-          }
         }).catch(console.error);
       }
     }
