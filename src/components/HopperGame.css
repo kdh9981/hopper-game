@@ -72,7 +72,7 @@ h1, .active-items, .hop-shop {
 }
 
 .instructions::before {
-  content: "Use Total Hops to buy items in the Hop Shop. Max 10 per item.";
+  content: "Use Hops to buy items in the Hop Shop. Max 10 per item.";
 }
 
 .game-stats {
@@ -168,7 +168,7 @@ h1, .active-items, .hop-shop {
 .shop-items {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Display three items per row for desktop */
-  gap: 15px;
+  gap: 10px;
   justify-items: center; /* Center items within their grid cells */
   overflow-y: auto; /* Allow vertical scrolling for more items */
   max-height: 300px; /* Limit height to show 3 items at a time */
@@ -179,7 +179,7 @@ h1, .active-items, .hop-shop {
   border-radius: 10px; /* Rounded corners */
   border: 1px solid #ddd; /* Lighter border to create visual separation */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for card effect */
-  padding: 30px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -302,13 +302,13 @@ button:disabled {
 
   .shop-items {
     grid-template-columns: repeat(2, 1fr); /* Display two items per row for mobile */
-    gap: 10px;
+    gap: 5px;
     overflow-y: auto; /* Allow vertical scrolling for more items */
     max-height: 600px; /* Limit height to show 3 items at a time */
   }
 
   .shop-item {
-    width: 80%; /* Make items wider on mobile */
+    width: 60%; /* Make items wider on mobile */
   }
 
   .leaderboard {
