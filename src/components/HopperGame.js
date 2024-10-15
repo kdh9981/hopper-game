@@ -6,8 +6,9 @@ import ActiveItems from './ActiveItems';
 import HopShop from './HopShop';
 import './HopperGame.css';
 
-// Import the sound file
+// Import the sound files
 import jumpSound from './jump.wav';
+import buySound from './buy.wav'; // New buy sound effect
 
 import nightImage from './images/night.png';
 import buildingsImage from './images/night.png'; // Use night.png instead of buildings
@@ -47,12 +48,14 @@ const HopperGame = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const walletAddress = publicKey ? publicKey.toBase58() : null;
 
-  // Create a ref for the audio
+  // Create refs for the audio
   const jumpSoundRef = useRef(null);
+  const buySoundRef = useRef(null); // New ref for buy sound effect
 
   // Initialize the audio in a useEffect
   useEffect(() => {
     jumpSoundRef.current = new Audio(jumpSound);
+    buySoundRef.current = new Audio(buySound); // Initialize buy sound
   }, []);
   
   useEffect(() => {
@@ -148,7 +151,13 @@ const HopperGame = () => {
             ...activeItems,
             [item.id]: (activeItems[item.id] || 0) + 1
           },
-        }).then(() => console.log('Progress saved successfully after buying item')).catch(console.error);
+        }).then(() => {
+          console.log('Progress saved successfully after buying item');
+          // Play buy sound when purchase is successful
+          if (buySoundRef.current) {
+            buySoundRef.current.play().then(() => console.log('Buy sound played')).catch(error => console.error("Error playing buy sound:", error));
+          }
+        }).catch(console.error);
       }
     }
   };
@@ -157,7 +166,7 @@ const HopperGame = () => {
     <div className="hopper-game">
       <div className="game-section left" style={{ backgroundImage: `url(${nightImage})` }}>
         <WalletMultiButton className="wallet-adapter-button-trigger" />
-        <h1>Hop into the Future!</h1>
+        <h1>Tap Hopper to reach the Moon!</h1>
         <div className="game-stats">
           <p>Total Hops: <span className="stat-value">{totalHops.toFixed(1)}</span></p>
           <p>Hops per Jump: <span className="stat-value">{hopsPerJump.toFixed(1)}</span></p>
