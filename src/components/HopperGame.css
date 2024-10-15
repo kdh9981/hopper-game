@@ -179,7 +179,7 @@ h1, .active-items, .hop-shop {
   border-radius: 10px; /* Rounded corners */
   border: 1px solid #ddd; /* Lighter border to create visual separation */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for card effect */
-  padding: 15px;
+  padding: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -308,7 +308,7 @@ button:disabled {
   }
 
   .shop-item {
-    width: 60%; /* Make items wider on mobile */
+    width: 80%; /* Make items wider on mobile */
   }
 
   .leaderboard {
