@@ -167,7 +167,7 @@ h1, .active-items, .hop-shop {
 
 .shop-items {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Display two items per row for desktop */
+  grid-template-columns: repeat(3, 1fr); /* Display three items per row for desktop */
   gap: 15px;
   justify-items: center; /* Center items within their grid cells */
   overflow-y: auto; /* Allow vertical scrolling for more items */
@@ -301,7 +301,7 @@ button:disabled {
   }
 
   .shop-items {
-    grid-template-columns: 1fr; /* One item per row for mobile */
+    grid-template-columns: repeat(2, 1fr); /* Display two items per row for mobile */
     gap: 10px;
     overflow-y: auto; /* Allow vertical scrolling for more items */
     max-height: 600px; /* Limit height to show 3 items at a time */
